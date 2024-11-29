@@ -26,10 +26,10 @@ func NewGreetHandler(va *validation.Validator, svc *greet.Service) *GreetHandler
 //	@Tags			greet
 //	@Accept			json
 //	@Produce		json
-//	@Success		200				{object}	entity.Response
-//	@Failure		400				{object}	entity.Response
-//	@Failure		404				{object}	entity.Response
-//	@Failure		500				{object}	entity.Response
+//	@Success		200	{object}	entity.Response
+//	@Failure		400	{object}	entity.Response
+//	@Failure		404	{object}	entity.Response
+//	@Failure		500	{object}	entity.Response
 //	@Router			/hello [get]
 func (h *GreetHandler) History(ctx echo.Context) error {
 	resp, err := h.svc.History(ctx.Request().Context())

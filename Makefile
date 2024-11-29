@@ -1,8 +1,8 @@
 # Examples:
-# make build-image
+# make build-image tag=my-service:1.0.0
 .PHONY: build-image
 build-image:
-	@./scripts/build.sh $(name)
+	@./scripts/build.sh $(tag)
 
 # Examples:
 # make generate-wire

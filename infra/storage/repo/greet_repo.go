@@ -12,7 +12,9 @@ type GreetRepo struct {
 }
 
 func NewGreetRepo() *GreetRepo {
-	return &GreetRepo{}
+	return &GreetRepo{
+		names: make([]string, 0),
+	}
 }
 
 func (r *GreetRepo) GetAll(_ context.Context) ([]greet.Message, error) {
