@@ -1,8 +1,8 @@
 package postgres
 
 import (
-	"github.com/billykore/kore/backend/pkg/config"
-	"github.com/billykore/kore/backend/pkg/logger"
+	"github.com/billykore/go-service-tmpl/pkg/config"
+	"github.com/billykore/go-service-tmpl/pkg/logger"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

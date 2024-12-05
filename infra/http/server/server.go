@@ -6,6 +6,7 @@ import (
 	"github.com/billykore/go-service-tmpl/pkg/logger"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
 // Server to run.
@@ -53,6 +54,10 @@ func (r *Router) useMiddlewares() {
 	r.router.Use(middleware.Recover())
 }
 
+func (r *Router) swagger() {
+	r.router.GET("/swagger/*", echoSwagger.WrapHandler)
+}
+
 func (r *Router) run() {
 	port := r.cfg.HTTP.Port
 	r.log.Infof("running on port ::[:%v]", port)
@@ -64,6 +69,7 @@ func (r *Router) run() {
 // Run runs the server.
 func (r *Router) Run() {
 	r.useMiddlewares()
+	r.swagger()
 	r.setGreetRoutes()
 	r.run()
 }

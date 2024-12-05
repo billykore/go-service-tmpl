@@ -15,7 +15,7 @@ generate-wire:
 .PHONY: run
 run:
 	@echo "Run app..."
-	@go run ./cmd
+	@go run ./cmd/app
 
 # Examples:
 # make create-migration name=create_products_table

@@ -11,7 +11,9 @@ import (
 
 // Config contains app configurations use by services.
 type Config struct {
-	HTTP internal.HTTP
+	HTTP     internal.HTTP
+	Token    internal.Token
+	Postgres internal.Postgres
 }
 
 var (

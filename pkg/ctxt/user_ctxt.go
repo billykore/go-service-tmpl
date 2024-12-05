@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/billykore/kore/backend/pkg/entity"
+	"github.com/billykore/go-service-tmpl/pkg/entity"
 )
 
 var ErrUserFromContext = errors.New("failed to get user from context")

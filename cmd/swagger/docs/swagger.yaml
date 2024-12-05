@@ -21,8 +21,8 @@ definitions:
 host: id.greet.org
 info:
   contact:
-    email: billyimmcul2010@gmail.com
-    name: Billy Kore
+    email: '[Your Email]'
+    name: '[Your Name]'
     url: https://www.swagger.io/support
   description: Greet service API specification.
   license:

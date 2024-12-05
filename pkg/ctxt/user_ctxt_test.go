@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/billykore/kore/backend/pkg/entity"
+	"github.com/billykore/go-service-tmpl/pkg/entity"
 	"github.com/stretchr/testify/assert"
 )
 

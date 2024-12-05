@@ -1,10 +1,10 @@
 package server
 
 import (
-	"github.com/billykore/kore/backend/pkg/config"
-	"github.com/billykore/kore/backend/pkg/ctxt"
-	"github.com/billykore/kore/backend/pkg/entity"
-	"github.com/billykore/kore/backend/pkg/security/token"
+	"github.com/billykore/go-service-tmpl/pkg/config"
+	"github.com/billykore/go-service-tmpl/pkg/ctxt"
+	"github.com/billykore/go-service-tmpl/pkg/entity"
+	"github.com/billykore/go-service-tmpl/pkg/security/token"
 	"github.com/golang-jwt/jwt/v5"
 	echojwt "github.com/labstack/echo-jwt/v4"
 	"github.com/labstack/echo/v4"

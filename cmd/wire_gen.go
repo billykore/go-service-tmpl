@@ -14,11 +14,8 @@ import (
 	"github.com/billykore/go-service-tmpl/pkg/config"
 	"github.com/billykore/go-service-tmpl/pkg/logger"
 	"github.com/billykore/go-service-tmpl/pkg/validation"
-	"github.com/labstack/echo/v4"
-)
-
-import (
 	_ "github.com/joho/godotenv/autoload"
+	"github.com/labstack/echo/v4"
 )
 
 // Injectors from wire.go:
