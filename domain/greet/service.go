@@ -9,16 +9,16 @@ import (
 	"github.com/billykore/go-service-tmpl/pkg/status"
 )
 
-// ErrEmptyMessages indicates no messages was stored in the repository.
-var ErrEmptyMessages = errors.New("empty messages")
+// ErrEmptyGreets indicates no messages was stored in the repository.
+var ErrEmptyGreets = errors.New("empty messages")
 
 // Repository defines the methods to interacting with persistence storage used by greet domain.
 type Repository interface {
 	// GetAll gets all messages.
-	GetAll(ctx context.Context) ([]Message, error)
+	GetAll(ctx context.Context) ([]Greet, error)
 
 	// Save saves message.
-	Save(ctx context.Context, message Message) error
+	Save(ctx context.Context, message Greet) error
 }
 
 type Service struct {
@@ -33,15 +33,15 @@ func NewService(log *logger.Logger, repo Repository) *Service {
 	}
 }
 
-func (s *Service) History(ctx context.Context) ([]*MessagesResponse, error) {
+func (s *Service) History(ctx context.Context) ([]*Response, error) {
 	messages, err := s.repo.GetAll(ctx)
 	if err != nil {
 		s.log.Usecase("History").Errorf("Failed to get all messages: %v", err)
 		return nil, status.Error(codes.NotFound, messageGetHistoryFailed)
 	}
-	resp := make([]*MessagesResponse, len(messages))
+	resp := make([]*Response, len(messages))
 	for i, message := range messages {
-		resp[i] = &MessagesResponse{
+		resp[i] = &Response{
 			Name: message.Name,
 		}
 	}
@@ -50,7 +50,7 @@ func (s *Service) History(ctx context.Context) ([]*MessagesResponse, error) {
 }
 
 func (s *Service) SayHello(ctx context.Context, req HelloRequest) (*HelloResponse, error) {
-	err := s.repo.Save(ctx, Message{Name: req.Name})
+	err := s.repo.Save(ctx, Greet{Name: req.Name})
 	if err != nil {
 		s.log.Usecase("SayHello").Errorf("Save message failed: %v", err)
 		return nil, status.Error(codes.Internal, messageSayHelloFailed)
